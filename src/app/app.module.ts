@@ -8,10 +8,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from 'src/environments/environment';
+import { reducers } from './stores/app.reducers';
+import { ProductEffects } from './stores/product-store/product.effects';
+import { CategoryEffects } from './stores/category-store/category.effects';
+import { CartEffects } from './stores/cart-store/cart.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +29,8 @@ import { environment } from 'src/environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
+    StoreModule.forRoot(reducers), 
+    EffectsModule.forRoot([ProductEffects, CategoryEffects, CartEffects]),
   ],
   providers: [
     StatusBar,
