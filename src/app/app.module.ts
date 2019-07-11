@@ -5,6 +5,7 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -31,6 +32,7 @@ import { CartEffects } from './stores/cart-store/cart.effects';
     AngularFireAuthModule,
     StoreModule.forRoot(reducers), 
     EffectsModule.forRoot([ProductEffects, CategoryEffects, CartEffects]),
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,

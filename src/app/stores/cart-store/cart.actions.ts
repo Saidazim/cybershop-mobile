@@ -4,6 +4,7 @@ import { CartProduct } from './cart.model';
 
 export enum CartActionTypes {
   GET_CART_LIST = '[CART] Get',
+  GET_CART_LIST_SUCCESS = '[CART] Get Success',
   ADD_TO_CART = '[CART] Add',
   REMOVE_FROM_CART = '[CART] Remove',
   UPDATE_PRODUCT_QUANTITY = '[CART] Update product quantity',
@@ -14,11 +15,17 @@ export class GetCartList implements Action {
   readonly type = CartActionTypes.GET_CART_LIST
 }
 
+export class GetCartListSucces implements Action {
+  readonly type = CartActionTypes.GET_CART_LIST_SUCCESS
+
+  constructor(public payload: CartProduct[]) {    
+  }
+}
+
 export class AddToCart implements Action {
   readonly type = CartActionTypes.ADD_TO_CART
 
-  constructor(public payload: CartProduct) {    
-  }
+  constructor(public payload: CartProduct) { }
 }
 
 export class RemoveFromCart implements Action {
@@ -40,4 +47,4 @@ export class ClearCart implements Action {
 }
 
 
-export type CartActions = GetCartList | AddToCart | RemoveFromCart | UpdateProductQuantity | ClearCart
+export type CartActions = GetCartList | GetCartListSucces | AddToCart | RemoveFromCart | UpdateProductQuantity | ClearCart
