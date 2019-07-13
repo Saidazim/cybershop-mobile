@@ -20,6 +20,11 @@ export class AppComponent {
       url: '/login',
       icon: 'person'
     },
+    {
+      title: 'Register',
+      url: '/register',
+      icon: 'person-add'
+    },
   ];
 
   constructor(
