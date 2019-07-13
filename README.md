@@ -4,4 +4,4 @@ Electronic devices shop with Ionic4, NGRX and Firebase. This is mobile version o
 
 ## Development server
 
-Run `ionic serve` for a dev server. Navigate to `http://localhost:8200/`. The app will automatically reload if you change any of the source files.
+Run `ionic serve` for a dev server. Navigate to `http://localhost:8100/`. The app will automatically reload if you change any of the source files.
