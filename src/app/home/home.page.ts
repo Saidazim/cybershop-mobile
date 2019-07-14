@@ -7,6 +7,7 @@ import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firest
 
 import { Product } from '../stores/product-store/product.model';
 import * as ProductActions from '../stores/product-store/product.actions';
+import * as CartActions from '../stores/cart-store/cart.actions';
 import { AppState } from '../stores/app.reducers';
 
 @Component({
@@ -19,6 +20,7 @@ export class HomePage {
   products: Observable<Product[]>
   user: any
   userDoc: AngularFirestoreDocument
+  cartCount: Observable<number>
 
   constructor(
     private store: Store<AppState>,
@@ -27,8 +29,10 @@ export class HomePage {
     private router: Router
   ) {
     this.store.dispatch(new ProductActions.GetProduct())
+    this.store.dispatch(new CartActions.GetCartList())
     
     this.products = this.store.select('product', 'productList')
+    this.cartCount = this.store.select('cart', 'productsCount')
 
     this.afAuth.user.subscribe(user => { 
       if (user) {
@@ -38,10 +42,13 @@ export class HomePage {
     })
   }
 
+  public addToCart(product: Product) {
+    this.store.dispatch(new CartActions.AddToCart({product}))
+  }
+
   public addToFavourites(product: Product) {
     if (this.user) {
       this.userDoc.collection('favorites').add(product)
-      console.log('added to fav');
     } else {
       this.router.navigate(['/login'])
     }

@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
   { path: 'favourites', loadChildren: './favourites/favourites.module#FavouritesPageModule' },
+  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' },
 ];
 
 @NgModule({

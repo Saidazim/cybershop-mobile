@@ -1,0 +1,22 @@
+.welcome-card ion-img {
+  // width: 100% !important;
+  height: 126px; 
+  object-fit: fill;
+  overflow: hidden;
+}
+
+.product-name{
+  font-size: 0.8rem;
+}
+
+.product-price{
+  font-size: 0.6rem;
+}
+
+.product-description{
+  font-size: 0.6rem;
+}
+
+.card_content{
+  padding-top: 0;
+}
