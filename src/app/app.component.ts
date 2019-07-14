@@ -16,6 +16,11 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'User Account',
+      url: '/user',
+      icon: 'contact'
+    },
+    {
       title: 'Login',
       url: '/login',
       icon: 'person'

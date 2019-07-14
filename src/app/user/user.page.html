@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    <ion-title>User profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <div *ngIf="currentUser">
+      <img *ngIf="currentUser.photoURL" [src]="currentUser.photoURL"/>
+      <ion-card-content>
+        <ion-card-title >
+          {{currentUser.displayName}}
+        </ion-card-title>
+        <p>{{currentUser.email}}</p>
+      </ion-card-content>
+      <ion-button expand="block" type="submit" (click)='logout()'>Logout</ion-button>
+    </div>
+  </ion-card>
+</ion-content>
