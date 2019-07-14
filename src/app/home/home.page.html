@@ -7,11 +7,11 @@
       Home
     </ion-title>
     <ion-buttons slot="primary">
-      <ion-button size="small">
+      <ion-button routerLink="/cart" size="small">
           <ion-badge color="light">{{cartCount | async}}</ion-badge>
         <ion-icon name="cart" slot="icon-only"></ion-icon>
       </ion-button>
-      <ion-button size="small">
+      <ion-button routerLink="/favourites" size="small">
         <ion-icon name="heart" slot="icon-only" color="danger"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -30,10 +30,10 @@
           </ion-card-header>
           <ion-card-content class="card_content">
             <p class="product-description">{{ product.description }} </p>
-            <ion-button class="ion-no-padding add-to-cart" size="small" fill="clear" color="light">
+            <ion-button class="ion-no-padding add-to-cart" size="small" fill="clear" color="light" (click)="addToCart(product)">
               <ion-icon slot="icon-only" name="cart" color="success"></ion-icon>
             </ion-button>
-            <ion-button class="ion-no-padding add-to-fav" size="small" fill="clear" color="light">
+            <ion-button class="ion-no-padding add-to-fav" size="small" fill="clear" color="light" (click)="addToFavourites(product)">
               <ion-icon slot="icon-only" name="heart" color="danger"></ion-icon>
             </ion-button>
           </ion-card-content>

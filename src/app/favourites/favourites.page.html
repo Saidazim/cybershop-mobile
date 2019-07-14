@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons>
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    <ion-title>favourites</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid >
+    <ion-row >
+      <ion-col size="6" *ngFor="let product of products | async">
+        <ion-card  class="ion-no-padding ion-no-margin welcome-card">
+          <ion-img [src]="product.photo"></ion-img>
+          <ion-card-header>
+            <ion-card-subtitle class="product-price">${{ product.price | number }}</ion-card-subtitle>
+            <ion-card-title class="product-name">{{ product.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content class="card_content">
+            <p class="product-description">{{ product.description }} </p>
+            <ion-button class="ion-no-padding add-to-cart" size="small" fill="clear" color="light" (click)="removeFromFavourites(product)">
+              <ion-icon slot="icon-only" name="heart-dislike" color="danger"></ion-icon>
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
